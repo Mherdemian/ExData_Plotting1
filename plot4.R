@@ -1,3 +1,5 @@
+myData <- file("household_power_consumption.txt")
+myTable <- read.table(text = grep("^[1,2]/2/2007", readLines(myData), value = TRUE), col.names = c("Date", "Time", "Global_active_power", "Global_reactive_power", "Voltage", "Global_intensity", "Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), sep = ";", header = TRUE)
 par(mfrow = c(2,2))
 with(data, {
   plot(Global_active_power ~ time, type = "l", 
